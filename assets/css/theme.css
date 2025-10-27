@@ -1,1 +1,14 @@
+:root {
+  --deep-orange: #FF7A00;
+  --tiger-gold: #DAA520;
+  --charcoal: #2B2B2B;
+  --onyx: #000000;
+  --cream: #F5E6D3;
+  --bronze: #8B5E3C;
+  --soft-yellow: #FFF4B0;
+
+  /* Animation variables */
+  --flip-duration: 650ms;
+  --flip-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
 
