@@ -1,1 +1,91 @@
+body {
+  font-family: 'Courier Prime', serif;
+  background: var(--cream);
+  color: var(--charcoal);
+  margin: 0;
+}
+
+/* Headings */
+h1, h2, h3 {
+  font-family: 'Special Elite', cursive;
+}
+
+/* Drop cap */
+.dropcap::first-letter {
+  font-size: 2.5em;
+  float: left;
+  margin-right: 0.1em;
+  font-weight: bold;
+}
+
+/* Glitter nav */
+.glitter-sheen {
+  position: relative;
+  color: var(--tiger-gold);
+  text-decoration: none;
+}
+.glitter-sheen:hover {
+  background: linear-gradient(90deg, var(--deep-orange), var(--tiger-gold), var(--soft-yellow));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Page-turn container */
+#page-container {
+  perspective: 2000px;
+  position: relative;
+  overflow: hidden;
+}
+.page {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  min-height: 100vh;
+  background: var(--cream);
+  backface-visibility: hidden;
+  transform-origin: left center;
+  transition: transform var(--flip-duration) var(--flip-ease);
+}
+.page.active {
+  transform: rotateY(0deg);
+  z-index: 2;
+}
+.page.flipping {
+  transform: rotateY(-180deg);
+  z-index: 1;
+}
+/* Curved spine shadow */
+.page::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at left center,
+    rgba(0,0,0,0.25) 0%,
+    rgba(0,0,0,0.15) 20%,
+    rgba(0,0,0,0.05) 60%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity var(--flip-duration) var(--flip-ease);
+}
+.page.flipping::before {
+  opacity: 1;
+}
+
+/* Rainbow overlay */
+#rainbow-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+  animation: rainbowPulse 10s infinite;
+}
+@keyframes rainbowPulse {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 0.1; }
+}
 
